@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Always Comb Instantiation" enabled="true" id="net.sf.sveditor.ui.alwayscomb" name="always_comb">/**
+ * TODO Describe me
+ */
+always_comb begin
+  ${cursor}
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Always Flop Instantiation" enabled="true" id="net.sf.sveditor.ui.alwaysff" name="always_ff">/**
+ * TODO Describe me
+ */
+always_ff @(posedge ${clk} or negedge ${reset_n}) begin
+  if (!${reset_n})  begin
+    ${flop} &lt;= 1'b0;
+  end
+  else begin
+    ${flop} &lt;= ${cursor};
+  end
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Always Latch Instantiation" enabled="true" id="net.sf.sveditor.ui.alwayslt" name="always_latch">/**
+ * TODO Describe me
+ */
+always_latch begin
+  if (!${reset_n})  begin
+    ${latch} &lt;= 1'b0;
+  end
+  else if (${clock}) begin
+    ${latch} &lt;= ${cursor};
+  end
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Always @ Event Instantiation" enabled="true" id="net.sf.sveditor.ui.always1" name="always @">/**
+ * TODO Describe me
+ */
+always @(${event}) begin
+  ${cursor}
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Assert Instantiation" enabled="true" id="net.sf.sveditor.ui.assert" name="assert">assert (${condition}) 
+else
+  ${cursor}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Case Instantiation" enabled="true" id="net.sf.sveditor.ui.case" name="case">case (${signal})
+  ${first}: begin
+    ${cursor}
+  end
+  default: begin
+  end
+endcase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Casex Instantiation" enabled="true" id="net.sf.sveditor.ui.casex" name="casex">casex (${signal})
+  ${first}: begin
+    ${cursor}
+  end
+  default: begin
+  end
+endcase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Casez Instantiation" enabled="true" id="net.sf.sveditor.ui.casez" name="casez">casez (${signal})
+  ${first}: begin
+    ${cursor}
+  end
+  default: begin
+  end
+endcase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="cast_dynamic">if (!$$cast(${destination}, ${source})) begin&#13;
+	`uvm_fatal("${fatal_id}", $$sformatf("Could not cast '${source}' (%s) to '${destination}' (%s)", $$typename(${source}), $$typename(${destination})))&#13;
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Generic Class Instantiation" enabled="true" id="net.sf.sveditor.ui.class" name="class">/**
+ * TODO Describe ${name}_c
+ */
+class ${name}_c extends ${base_class};
+
+${cursor}
+
+endclass : ${name}_c</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Generic Class Instantiation" enabled="true" name="class_parameterized">/**
+ * TODO Describe ${name}_c
+ */
+class ${name}_c #(${parameters}) extends ${base_class};
+
+${cursor}
+
+endclass : ${name}_c</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="constraint">/**&#13;
+ * Describe ${name}_cons&#13;
+ */&#13;
+constraint ${name}_cons {&#13;
+   ${cursor}&#13;
+}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="covergroup">covergroup ${name}_cg;&#13;
+    &#13;
+   ${cursor}&#13;
+   &#13;
+endgroup : ${name}_cg</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="define_override">`ifndef ${NAME}
+   `define ${NAME} ${VALUE}
+`endif</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Do-While Instantiation" enabled="true" id="net.sf.sveditor.ui.do" name="do">do begin
+${cursor}
+end while (${condition});</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Else Instantiation" enabled="true" id="net.sf.sveditor.ui.else" name="else">else begin
+${cursor}
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Block of text amenable to encryption" enabled="true" name="encrypted_block">`protect&#13;
+// pragma protect&#13;
+// pragma protect begin&#13;
+&#13;
+&#13;
+${cursor}&#13;
+&#13;
+&#13;
+// pragma protect end&#13;
+`endprotect</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="enum">typedef enum {&#13;
+  ${cursor}&#13;
+} ${name}_enum;</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Defines ensuring a file isn't included more than once" enabled="true" name="file_guard">`ifndef __${file_name_uppercase}_SV__&#13;
+`define __${file_name_uppercase}_SV__&#13;
+&#13;
+&#13;
+${cursor}&#13;
+&#13;
+&#13;
+`endif // __${file_name_uppercase}_SV__&#13;
+</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Copyright Message" enabled="true" name="file_header">/******************************************************************************&#13;
+ * FENECK CONFIDENTIAL&#13;
+ ******************************************************************************&#13;
+ * Copyright (C) 2018 Feneck Network Solutions Inc.&#13;
+ * All Rights Reserved.&#13;
+ ******************************************************************************&#13;
+ * NOTICE:  All information contained herein is, and remains the property of&#13;
+ * Feneck Network Solutions Inc. and its suppliers, if any.  The intellectual&#13;
+ * and technical concepts contained herein are proprietary to Feneck Network&#13;
+ * Solutions Inc. and its suppliers and may be covered by U.S. and Foreign&#13;
+ * Patents, patents in process, and are protected by trade secret or copyright&#13;
+ * law. Dissemination of this information or reproduction of this material is&#13;
+ * strictly forbidden unless prior written permission is obtained from Feneck&#13;
+ * Network Solutions Inc.&#13;
+ ******************************************************************************&#13;
+ * $$Date$$&#13;
+ * $$Rev$$&#13;
+ *****************************************************************************/&#13;
+&#13;
+&#13;
+</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Final Block Instantiation" enabled="true" id="net.sf.sveditor.ui.final" name="final">/**
+ * TODO Describe me
+ */
+final begin
+${cursor}
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="For Loop Instantiation" enabled="true" id="net.sf.sveditor.ui.for" name="for">for (int unsigned ${counter}=0; ${counter}&lt;${max_count}; ${counter}++) begin
+${cursor}
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="foreach">foreach (${array_name}[${iterator}]) begin&#13;
+${cursor}&#13;
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="foreach_fork_join">fork&#13;
+  begin&#13;
+    foreach (${array_name}[_${iterator_name}]) begin&#13;
+      fork&#13;
+        automatic int unsigned ${iterator_name}] = _${iterator_name}];&#13;
+        &#13;
+        begin&#13;
+          ${cursor}&#13;
+        end&#13;
+      join_none&#13;
+    end&#13;
+    wait fork;&#13;
+  end&#13;
+join</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" id="net.sf.sveditor.ui.function" name="function_declaration">/**
+ * TODO Describe ${class_name}::${name}()
+ */
+extern function ${return_type} ${name}(${arguments});</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Function Implementation" enabled="true" name="function_implementation">function ${return_type} ${class_name}::${name}(${arguments});
+
+${cursor}
+
+endfunction : ${name}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Function Instantiation" enabled="true" name="function_inline">/**
+ * TODO Describe ${name}
+ */
+function ${return_type} ${name}(${arguments});
+
+${cursor}
+
+endfunction : ${name}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="If Instantiation" enabled="true" id="net.sf.sveditor.ui.if" name="if">if (${condition}) begin
+${cursor}
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Initial Block Instantiation" enabled="true" id="net.sf.sveditor.ui.initial" name="initial">/**
+ * TODO Describe me
+ */
+initial begin
+${cursor}
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Module Instantiation" enabled="true" id="net.sf.sveditor.ui.module" name="module">/**
+ * @ingroup TODO Add ${name} to a Doxygen group
+ * TODO Describe ${name}
+ */
+module ${name} (
+${port_list}
+);
+
+${cursor}
+
+endmodule : ${name}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Module Instantiation" enabled="true" name="module_parameterized">/**
+ * @ingroup TODO Add ${name} to a Doxygen group
+ * TODO Describe ${name}
+ */
+module ${name} #(
+  parameter ${parameter_name} = ${parameter_value}
+) (
+  ${port_list}
+);
+
+${cursor}
+
+endmodule : ${name}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Generic package Instantiation" enabled="true" id="net.sf.sveditor.ui.package" name="package">/**
+ * @ingroup TODO Add ${package_name}_pkg to a Doxygen group
+ * TODO Describe ${package_name}_pkg
+ */
+package ${package_name}_pkg;
+
+${cursor}
+
+endpackage : ${package_name}_pkg</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="struct">typedef struct {&#13;
+  ${cursor}&#13;
+} ${name}_t;</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="task_declaration">/**
+ * TODO Describe ${class_name}::${name}()
+ */
+extern task ${name}(${arguments});</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Task Implementation" enabled="true" name="task_implementation">task ${class_name}::${name}(${arguments});
+
+${cursor}
+
+endtask : ${name}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Task Instantiation" enabled="true" id="net.sf.sveditor.ui.task" name="task_inline">/**
+ * TODO Describe ${name}
+ */
+task ${name}(${arguments});
+
+${cursor}
+
+endtask : ${name}</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_create_array_components">${name} = new[${size}];
+foreach (${name}[${iterator}]) begin
+   ${name}[${iterator}] = ${type}::type_id::create($$sformatf("${name}[%0d]", ${iterator}), this);
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_create_array_objects">${name} = new[${size}];
+foreach (${name}[${iterator}]) begin
+   ${name}[${iterator}] = ${type}::type_id::create($$sformatf("${name}[%0d]", ${iterator}));
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_create_array_tlm">${name} = new[${size}];
+foreach (${name}[${iterator}]) begin
+   ${name}[${iterator}] = new($$sformatf("${name}[%0d]", ${iterator}), this);
+end</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_create_component">${name} = ${type_name}::type_id::create("${name}", this);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_create_object">${name} = ${type_name}::type_id::create("${name}");</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_create_tlm">${name} = new("${name}", this);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_error">`uvm_error("${id}", "${message}")</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_error_formatted">`uvm_error("${id}", $$sformatf("${message_format}", ${format_data}))</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_fatal">`uvm_fatal("${id}", "${message}")</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_fatal_formatted">`uvm_fatal("${id}", $$sformatf("${message_format}", ${format_data}))</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_info">`uvm_info("${id}", "${message}", UVM_${verbosity})</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_info_formatted">`uvm_info("${id}", $$sformatf("${message_format}", ${format_data}), UVM_${verbosity})</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_override_inline">${super_class_name}::type_id::set_type_override(${base_class_name}::get_type());</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_override_inst_by_name">set_inst_override_by_name (&#13;
+  "${original_type_name}",&#13;
+  "${override_type_name}",&#13;
+  "${full_inst_path}"&#13;
+);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_override_inst_by_type">set_inst_override_by_type(&#13;
+  ${original_type}::get_type(),&#13;
+  ${override_type}::get_type(),&#13;
+  "${full_inst_path}"&#13;
+);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_override_type_by_name">set_type_override_by_name(&#13;
+  "${original_type}",&#13;
+  "${override_type}",&#13;
+);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_override_type_by_type">set_type_override_by_type(&#13;
+  ${original_type}::get_type(),&#13;
+  ${override_type}::get_type(),&#13;
+);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_build_declaration">/**&#13;
+ * TODO Describe ${class_name}::build_phase()&#13;
+ */&#13;
+extern virtual function void build_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_build_implementation">function void ${class_name}::build_phase(uvm_phase phase);&#13;
+  &#13;
+  super.build_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : build_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_check_declaration">/**&#13;
+ * TODO Describe ${class_name}::check_phase()&#13;
+ */&#13;
+extern virtual function void check_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_check_implementation">function void ${class_name}::check_phase(uvm_phase phase);&#13;
+  &#13;
+  super.check_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : check_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_configure_declaration">/**&#13;
+ * TODO Describe ${class_name}::configure_phase()&#13;
+ */&#13;
+extern virtual task configure_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_configure_implementation">task ${class_name}::configure_phase(uvm_phase phase);&#13;
+  &#13;
+  super.configure_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : configure_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_connect_declaration">/**&#13;
+ * TODO Describe ${class_name}::connect_phase()&#13;
+ */&#13;
+extern virtual function void connect_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_connect_implementation">function void ${class_name}::connect_phase(uvm_phase phase);&#13;
+  &#13;
+  super.connect_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : connect_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_end_of_elaboration_declaration">/**&#13;
+ * TODO Describe ${class_name}::end_of_elaboration_phase()&#13;
+ */&#13;
+extern virtual function void end_of_elaboration_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_end_of_elaboration_implementation">function void ${class_name}::end_of_elaboration_phase(uvm_phase phase);&#13;
+  &#13;
+  super.end_of_elaboration_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : end_of_elaboration_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_extract_declaration">/**&#13;
+ * TODO Describe ${class_name}::extract_phase()&#13;
+ */&#13;
+extern virtual function void extract_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_extract_implementation">function void ${class_name}::extract_phase(uvm_phase phase);&#13;
+  &#13;
+  super.extract_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : extract_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_final_declaration">/**&#13;
+ * TODO Describe ${class_name}::final_phase()&#13;
+ */&#13;
+extern virtual function void final_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_final_implementation">function void ${class_name}::final_phase(uvm_phase phase);&#13;
+  &#13;
+  super.final_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : final_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_main_declaration">/**&#13;
+ * TODO Describe ${class_name}::main_phase()&#13;
+ */&#13;
+extern virtual task main_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_main_implementation">task ${class_name}::main_phase(uvm_phase phase);&#13;
+  &#13;
+  super.main_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : main_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_configure_declaration">/**&#13;
+ * TODO Describe ${class_name}::post_configure_phase()&#13;
+ */&#13;
+extern virtual task post_configure_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_configure_implementation">task ${class_name}::post_configure_phase(uvm_phase phase);&#13;
+  &#13;
+  super.post_configure_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : post_configure_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_main_declaration">/**&#13;
+ * TODO Describe ${class_name}::post_main_phase()&#13;
+ */&#13;
+extern virtual task post_main_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_main_implementation">task ${class_name}::post_main_phase(uvm_phase phase);&#13;
+  &#13;
+  super.post_main_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : post_main_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_reset_declaration">/**&#13;
+ * TODO Describe ${class_name}::post_reset_phase()&#13;
+ */&#13;
+extern virtual task post_reset_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_reset_implementation">task ${class_name}::post_reset_phase(uvm_phase phase);&#13;
+  &#13;
+  super.post_reset_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : post_reset_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_shutdown_declaration">/**&#13;
+ * TODO Describe ${class_name}::post_reset_phase()&#13;
+ */&#13;
+extern virtual task post_reset_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_post_shutdown_implementation">task ${class_name}::post_shutdown_phase(uvm_phase phase);&#13;
+  &#13;
+  super.post_shutdown_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : post_shutdown_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_configure_declaration">/**&#13;
+ * TODO Describe ${class_name}::pre_configure_phase()&#13;
+ */&#13;
+extern virtual task pre_configure_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_configure_implementation">task ${class_name}::pre_configure_phase(uvm_phase phase);&#13;
+  &#13;
+  super.pre_configure_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : pre_configure_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_main_declaration">/**&#13;
+ * TODO Describe ${class_name}::pre_main_phase()&#13;
+ */&#13;
+extern virtual task pre_main_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_main_implementation">task ${class_name}::pre_main_phase(uvm_phase phase);&#13;
+  &#13;
+  super.pre_main_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : pre_main_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_reset_declaration">/**&#13;
+ * TODO Describe ${class_name}::pre_reset_phase()&#13;
+ */&#13;
+extern virtual task pre_reset_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_reset_implementation">task ${class_name}::pre_reset_phase(uvm_phase phase);&#13;
+  &#13;
+  super.pre_reset_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : pre_reset_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_shutdown_declaration">/**&#13;
+ * TODO Describe ${class_name}::pre_shutdown_phase()&#13;
+ */&#13;
+extern virtual task pre_shutdown_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_pre_shutdown_implementation">task ${class_name}::pre_shutdown_phase(uvm_phase phase);&#13;
+  &#13;
+  super.pre_shutdown_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : pre_shutdown_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_report_declaration">/**&#13;
+ * TODO Describe ${class_name}::report_phase()&#13;
+ */&#13;
+extern virtual function void report_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_report_implementation">function void ${class_name}::report_phase(uvm_phase phase);&#13;
+  &#13;
+  super.report_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : report_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_reset_declaration">/**&#13;
+ * TODO Describe ${class_name}::reset_phase()&#13;
+ */&#13;
+extern virtual task reset_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_reset_implementation">task ${class_name}::reset_phase(uvm_phase phase);&#13;
+  &#13;
+  super.reset_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : reset_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_run_declaration">/**&#13;
+ * TODO Describe ${class_name}::run_phase()&#13;
+ */&#13;
+extern virtual task run_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_run_implementation">task ${class_name}::run_phase(uvm_phase phase);&#13;
+  &#13;
+  super.run_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : run_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_shutdown_declaration">/**&#13;
+ * TODO Describe ${class_name}::shutdown_phase()&#13;
+ */&#13;
+extern virtual task shutdown_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_shutdown_implementation">task ${class_name}::shutdown_phase(uvm_phase phase);&#13;
+  &#13;
+  super.shutdown_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endtask : shutdown_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_start_of_simulation_declaration">/**&#13;
+ * TODO Describe ${class_name}::start_of_simulation_phase()&#13;
+ */&#13;
+extern virtual function void start_of_simulation_phase(uvm_phase phase);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_phase_start_of_simulation_implementation">function void ${class_name}::start_of_simulation_phase(uvm_phase phase);&#13;
+  &#13;
+  super.start_of_simulation_phase(phase);&#13;
+  &#13;
+  ${cursor}&#13;
+  &#13;
+endfunction : start_of_simulation_phase</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_register_create">${name} = ${class_name}::type_id::create("${name}");&#13;
+${name}.configure(this);&#13;
+${name}.build();&#13;
+default_map.add_reg(&#13;
+  .rg    (${name}),&#13;
+  .offset(32'h${address}),&#13;
+  .rights("${access_policy}")&#13;
+);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_register_field">${name} = uvm_reg_field::type_id::create("${name}");&#13;
+xyz.configure(&#13;
+  .parent                 (this),&#13;
+  .size                   (${size_in_bits}),&#13;
+  .lsb_pos                (${least_significant_bit_position}),&#13;
+  .access                 ("${access_type_RO_RW_etc}"),&#13;
+  .volatile               (${is_volatile}),&#13;
+  .reset                  (${reset_value}),&#13;
+  .has_reset              (1),&#13;
+  .is_rand                (1),&#13;
+  .individually_accessible(0)&#13;
+);</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_warning">`uvm_warning("${id}", "${message}")</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="" enabled="true" name="uvm_warning_formatted">`uvm_warning("${id}", $$sformatf("${message_format}", ${format_data}))</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="While Instantiation" enabled="true" id="net.sf.sveditor.ui.while" name="while">while (${condition}) begin
+${cursor}
+end</template></templates>
