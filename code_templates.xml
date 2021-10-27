@@ -98,26 +98,6 @@ ${cursor}&#13;
 &#13;
 &#13;
 `endif // __${file_name_uppercase}_SV__&#13;
-</template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Copyright Message" enabled="true" name="file_header">/******************************************************************************&#13;
- * FENECK CONFIDENTIAL&#13;
- ******************************************************************************&#13;
- * Copyright (C) 2018 Feneck Network Solutions Inc.&#13;
- * All Rights Reserved.&#13;
- ******************************************************************************&#13;
- * NOTICE:  All information contained herein is, and remains the property of&#13;
- * Feneck Network Solutions Inc. and its suppliers, if any.  The intellectual&#13;
- * and technical concepts contained herein are proprietary to Feneck Network&#13;
- * Solutions Inc. and its suppliers and may be covered by U.S. and Foreign&#13;
- * Patents, patents in process, and are protected by trade secret or copyright&#13;
- * law. Dissemination of this information or reproduction of this material is&#13;
- * strictly forbidden unless prior written permission is obtained from Feneck&#13;
- * Network Solutions Inc.&#13;
- ******************************************************************************&#13;
- * $$Date$$&#13;
- * $$Rev$$&#13;
- *****************************************************************************/&#13;
-&#13;
-&#13;
 </template><template autoinsert="true" context="net.sf.sveditor.ui.svTemplateContext" deleted="false" description="Final Block Instantiation" enabled="true" id="net.sf.sveditor.ui.final" name="final">/**
  * TODO Describe me
  */
